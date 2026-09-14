@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Business Growth Assessment</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="#" class="brand">
+            <div class="brand-icon">
+                📊
+            </div>
+
+            <span>Business<span class="green">Insight</span></span>
+        </a>
+
+        <div class="nav-text">
+            Business Growth Assessment
+        </div>
+
+    </header>
+
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                BUSINESS ASSESSMENT
+            </div>
+
+            <h1>
+                Let's understand your
+                <span>business better.</span>
+            </h1>
+
+            <p>
+                Tell us about your business, your current challenges,
+                and where you want to go. This assessment takes only
+                a few minutes to complete.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Main Form -->
+    <main class="form-wrapper">
+
+        <div class="form-card">
+
+            <div class="form-header">
+
+                <div>
+                    <span class="form-label">
+                        BUSINESS INFORMATION
+                    </span>
+
+                    <h2>
+                        Tell us about your business
+                    </h2>
+
+                    <p>
+                        Please provide accurate estimates where exact
+                        figures are not available.
+                    </p>
+                </div>
+
+                <div class="step-indicator">
+                    <strong id="progressText">0%</strong>
+                    <span>Complete</span>
+                </div>
+
+            </div>
+
+
+            <!-- Progress -->
+            <div class="progress-track">
+                <div
+                    class="progress-bar"
+                    id="progressBar"
+                ></div>
+            </div>
+
+
+            <form id="businessForm">
+
+                <!-- Business Name -->
+                <div class="form-group">
+
+                    <label for="businessName">
+                        Business Name
+                        <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="businessName"
+                        name="businessName"
+                        placeholder="e.g. Acme Solutions"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Business Type -->
+                <div class="form-group">
+
+                    <label for="businessType">
+                        Business Type
+                        <span>*</span>
+                    </label>
+
+                    <select
+                        id="businessType"
+                        name="businessType"
+                        required
+                    >
+
+                        <option value="">
+                            Select your business type
+                        </option>
+
+                        <option value="Retail">
+                            Retail
+                        </option>
+
+                        <option value="E-commerce">
+                            E-commerce
+                        </option>
+
+                        <option value="Restaurant">
+                            Restaurant / Food Service
+                        </option>
+
+                        <option value="Professional Services">
+                            Professional Services
+                        </option>
+
+                        <option value="Technology">
+                            Technology
+                        </option>
+
+                        <option value="Manufacturing">
+                            Manufacturing
+                        </option>
+
+                        <option value="Healthcare">
+                            Healthcare
+                        </option>
+
+                        <option value="Construction">
+                            Construction
+                        </option>
+
+                        <option value="Real Estate">
+                            Real Estate
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Hospitality">
+                            Hospitality
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Financial Information -->
+                <div class="financial-grid">
+
+                    <!-- Monthly Sales -->
+                    <div class="form-group">
+
+                        <label for="monthlySales">
+                            Average Monthly Sales
+                            <span>*</span>
+                        </label>
+
+                        <div class="currency-input">
+
+                            <div class="currency">
+                                ₹
+                            </div>
+
+                            <input
+                                type="number"
+                                id="monthlySales"
+                                name="monthlySales"
+                                placeholder="50000"
+                                min="0"
+                                step="1"
+                                required
+                            >
+
+                        </div>
+
+                        <small>
+                            Approximate average monthly sales
+                        </small>
+
+                    </div>
+
+
+                    <!-- Monthly Expenses -->
+                    <div class="form-group">
+
+                        <label for="monthlyExpenses">
+                            Average Monthly Expenses
+                            <span>*</span>
+                        </label>
+
+                        <div class="currency-input">
+
+                            <div class="currency">
+                                ₹
+                            </div>
+
+                            <input
+                                type="number"
+                                id="monthlyExpenses"
+                                name="monthlyExpenses"
+                                placeholder="30000"
+                                min="0"
+                                step="1"
+                                required
+                            >
+
+                        </div>
+
+                        <small>
+                            Approximate monthly business expenses
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Business Problem -->
+                <div class="form-group">
+
+                    <label for="businessProblem">
+                        Main Business Problem
+                        <span>*</span>
+                    </label>
+
+                    <textarea
+                        id="businessProblem"
+                        name="businessProblem"
+                        placeholder="What is the biggest challenge or problem your business is currently facing?"
+                        required
+                    ></textarea>
+
+                    <div class="character-count">
+                        <span id="problemCount">0</span> characters
+                    </div>
+
+                </div>
+
+
+                <!-- Business Goal -->
+                <div class="form-group">
+
+                    <label for="businessGoal">
+                        Main Business Goal
+                        <span>*</span>
+                    </label>
+
+                    <textarea
+                        id="businessGoal"
+                        name="businessGoal"
+                        placeholder="What is the main goal you want to achieve for your business?"
+                        required
+                    ></textarea>
+
+                    <div class="character-count">
+                        <span id="goalCount">0</span> characters
+                    </div>
+
+                </div>
+
+
+                <!-- Submit -->
+                <div class="submit-area">
+
+                    <button
+                        type="submit"
+                        id="submitButton"
+                        class="submit-button"
+                    >
+                        Submit Information
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                    <p class="privacy-text">
+                        Your information will be kept private and
+                        used only to understand your business needs.
+                    </p>
+
+                </div>
+
+            </form>
+
+
+            <!-- Success -->
+            <div
+                class="success-screen"
+                id="successScreen"
+            >
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <div class="success-badge">
+                    SUBMISSION COMPLETE
+                </div>
+
+                <h2>
+                    Thank you!
+                </h2>
+
+                <p>
+                    Your information has been submitted successfully.
+                    We appreciate you taking the time to tell us about
+                    your business.
+                </p>
+
+                <button
+                    type="button"
+                    class="another-button"
+                    id="anotherButton"
+                >
+                    Submit Another Response
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Bottom CTA -->
+    <section class="bottom-section">
+
+        <div class="bottom-content">
+
+            <span>
+                READY TO MOVE FORWARD?
+            </span>
+
+            <h2>
+                Your business. Your goals. Your next step.
+            </h2>
+
+            <p>
+                A few minutes today can help create a clearer
+                understanding of your business tomorrow.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-brand">
+            📊 Business<span>Insight</span>
+        </div>
+
+        <p>
+            Business Growth Assessment
+        </p>
+
+        <small>
+            © 2026 Business Insight. All rights reserved.
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

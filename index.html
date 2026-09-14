@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,6 +63,7 @@
             <div class="form-header">
 
                 <div>
+
                     <span class="form-label">
                         BUSINESS INFORMATION
                     </span>
@@ -74,6 +76,7 @@
                         Please provide accurate estimates where exact
                         figures are not available.
                     </p>
+
                 </div>
 
                 <div class="step-indicator">
@@ -86,10 +89,12 @@
 
             <!-- Progress -->
             <div class="progress-track">
+
                 <div
                     class="progress-bar"
                     id="progressBar"
                 ></div>
+
             </div>
 
 
@@ -110,6 +115,29 @@
                         placeholder="e.g. Acme Solutions"
                         required
                     >
+
+                </div>
+
+
+                <!-- Email Address -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                        <span>*</span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                    <small>
+                        We'll send your business advice to this email.
+                    </small>
 
                 </div>
 
@@ -181,6 +209,25 @@
                         </option>
 
                     </select>
+
+                </div>
+
+
+                <!-- Location -->
+                <div class="form-group">
+
+                    <label for="location">
+                        Business Location
+                        <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        placeholder="e.g. Kochi, Kerala"
+                        required
+                    >
 
                 </div>
 

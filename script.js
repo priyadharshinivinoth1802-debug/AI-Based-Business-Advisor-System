@@ -29,6 +29,14 @@ const goalCount =
 
 
 /* ================================
+   MAKE.COM WEBHOOK
+================================ */
+
+const webhookURL =
+    "https://hook.eu1.make.com/xrhinbd6kvzwggmkw8982wrabac63ws2";
+
+
+/* ================================
    FORM FIELDS
 ================================ */
 
@@ -114,9 +122,14 @@ goal.addEventListener(
 
 form.addEventListener(
     "submit",
-    function(event) {
+    async function(event) {
 
         event.preventDefault();
+
+
+        /* ----------------------------
+           VALIDATE FORM
+        ---------------------------- */
 
         if (!form.checkValidity()) {
 
@@ -127,22 +140,76 @@ form.addEventListener(
         }
 
 
+        /* ----------------------------
+           DISABLE BUTTON
+        ---------------------------- */
+
         submitButton.disabled = true;
 
         submitButton.innerHTML =
-            "Submitting...";
+            "Analyzing...";
 
 
-        /*
-         * Demo submission.
-         *
-         * Replace this setTimeout with
-         * fetch() when connecting a backend.
-         */
+        /* ----------------------------
+           COLLECT FORM DATA
+        ---------------------------- */
 
-        setTimeout(function() {
+        const formData =
+            new FormData(form);
 
-            form.style.display = "none";
+        const data = {};
+
+
+        formData.forEach(
+            function(value, key) {
+
+                data[key] = value;
+
+            }
+        );
+
+
+        /* ----------------------------
+           SEND TO MAKE.COM
+        ---------------------------- */
+
+        try {
+
+            const response = await fetch(
+                webhookURL,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+                }
+            );
+
+
+            /* ----------------------------
+               CHECK RESPONSE
+            ---------------------------- */
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Make.com webhook request failed"
+                );
+
+            }
+
+
+            /* ----------------------------
+               SUCCESS
+            ---------------------------- */
+
+            form.style.display =
+                "none";
 
             successScreen.classList.add(
                 "show"
@@ -153,9 +220,35 @@ form.addEventListener(
                 block: "center"
             });
 
-            submitButton.disabled = false;
 
-        }, 1200);
+        } catch (error) {
+
+            console.error(
+                "Webhook Error:",
+                error
+            );
+
+
+            /* ----------------------------
+               ERROR MESSAGE
+            ---------------------------- */
+
+            alert(
+                "Something went wrong while submitting your business information. Please try again."
+            );
+
+
+            /* ----------------------------
+               ENABLE BUTTON AGAIN
+            ---------------------------- */
+
+            submitButton.disabled =
+                false;
+
+            submitButton.innerHTML =
+                "Analyze My Business";
+
+        }
 
     }
 );
@@ -169,21 +262,52 @@ anotherButton.addEventListener(
     "click",
     function() {
 
+        /* Reset form */
+
         form.reset();
 
-        problemCount.textContent = "0";
 
-        goalCount.textContent = "0";
+        /* Reset counters */
 
-        progressBar.style.width = "0%";
+        problemCount.textContent =
+            "0";
 
-        progressText.textContent = "0%";
+        goalCount.textContent =
+            "0";
+
+
+        /* Reset progress */
+
+        progressBar.style.width =
+            "0%";
+
+        progressText.textContent =
+            "0%";
+
+
+        /* Hide success screen */
 
         successScreen.classList.remove(
             "show"
         );
 
-        form.style.display = "block";
+
+        /* Show form */
+
+        form.style.display =
+            "block";
+
+
+        /* Reset button */
+
+        submitButton.disabled =
+            false;
+
+        submitButton.innerHTML =
+            "Analyze My Business";
+
+
+        /* Scroll back to form */
 
         form.scrollIntoView({
             behavior: "smooth",
@@ -194,6 +318,8 @@ anotherButton.addEventListener(
 );
 
 
-/* Initial state */
+/* ================================
+   INITIAL STATE
+================================ */
 
 updateProgress();

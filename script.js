@@ -15,17 +15,11 @@ const successScreen =
 const anotherButton =
     document.getElementById("anotherButton");
 
-const problem =
-    document.getElementById("businessProblem");
+const businessIdea =
+    document.getElementById("businessIdea");
 
-const goal =
-    document.getElementById("businessGoal");
-
-const problemCount =
-    document.getElementById("problemCount");
-
-const goalCount =
-    document.getElementById("goalCount");
+const ideaCount =
+    document.getElementById("ideaCount");
 
 
 /* ================================
@@ -33,7 +27,7 @@ const goalCount =
 ================================ */
 
 const webhookURL =
-    "https://hook.eu1.make.com/xrhinbd6kvzwggmkw8982wrabac63ws2";
+    https://hook.eu1.make.com/xrhinbd6kvzwggmkw8982wrabac63ws2
 
 
 /* ================================
@@ -55,9 +49,7 @@ function updateProgress() {
 
     fields.forEach(function(field) {
 
-        if (
-            field.value.trim() !== ""
-        ) {
+        if (field.value.trim() !== "") {
             completed++;
         }
 
@@ -72,8 +64,11 @@ function updateProgress() {
 
     progressText.textContent =
         percentage + "%";
+
 }
 
+
+/* Listen for changes */
 
 fields.forEach(function(field) {
 
@@ -91,33 +86,26 @@ fields.forEach(function(field) {
 
 
 /* ================================
-   CHARACTER COUNTERS
+   CHARACTER COUNTER
 ================================ */
 
-problem.addEventListener(
-    "input",
-    function() {
+if (businessIdea && ideaCount) {
 
-        problemCount.textContent =
-            problem.value.length;
+    businessIdea.addEventListener(
+        "input",
+        function() {
 
-    }
-);
+            ideaCount.textContent =
+                businessIdea.value.length;
 
+        }
+    );
 
-goal.addEventListener(
-    "input",
-    function() {
-
-        goalCount.textContent =
-            goal.value.length;
-
-    }
-);
+}
 
 
 /* ================================
-   SUBMIT
+   SUBMIT FORM
 ================================ */
 
 form.addEventListener(
@@ -147,7 +135,7 @@ form.addEventListener(
         submitButton.disabled = true;
 
         submitButton.innerHTML =
-            "Analyzing...";
+            "Analyzing Your Startup...";
 
 
         /* ----------------------------
@@ -170,7 +158,7 @@ form.addEventListener(
 
 
         /* ----------------------------
-           SEND TO MAKE.COM
+           SEND DATA TO MAKE.COM
         ---------------------------- */
 
         try {
@@ -205,7 +193,7 @@ form.addEventListener(
 
 
             /* ----------------------------
-               SUCCESS
+               SHOW SUCCESS SCREEN
             ---------------------------- */
 
             form.style.display =
@@ -229,12 +217,8 @@ form.addEventListener(
             );
 
 
-            /* ----------------------------
-               ERROR MESSAGE
-            ---------------------------- */
-
             alert(
-                "Something went wrong while submitting your business information. Please try again."
+                "Something went wrong while submitting your startup information. Please try again."
             );
 
 
@@ -246,7 +230,7 @@ form.addEventListener(
                 false;
 
             submitButton.innerHTML =
-                "Analyze My Business";
+                "Get My Startup Advice";
 
         }
 
@@ -255,7 +239,7 @@ form.addEventListener(
 
 
 /* ================================
-   SUBMIT ANOTHER RESPONSE
+   START NEW ASSESSMENT
 ================================ */
 
 anotherButton.addEventListener(
@@ -267,13 +251,14 @@ anotherButton.addEventListener(
         form.reset();
 
 
-        /* Reset counters */
+        /* Reset character counter */
 
-        problemCount.textContent =
-            "0";
+        if (ideaCount) {
 
-        goalCount.textContent =
-            "0";
+            ideaCount.textContent =
+                "0";
+
+        }
 
 
         /* Reset progress */
@@ -298,16 +283,16 @@ anotherButton.addEventListener(
             "block";
 
 
-        /* Reset button */
+        /* Reset submit button */
 
         submitButton.disabled =
             false;
 
         submitButton.innerHTML =
-            "Analyze My Business";
+            "Get My Startup Advice";
 
 
-        /* Scroll back to form */
+        /* Scroll to form */
 
         form.scrollIntoView({
             behavior: "smooth",

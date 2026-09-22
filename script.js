@@ -27,7 +27,7 @@ const ideaCount =
 ================================ */
 
 const webhookURL =
-    "https://hook.eu1.make.com/xrhinbd6kvzwggmkw8982wrabac63ws2";
+ " https://hook.eu1.make.com/xrhinbd6kvzwggmkw8982wrabac63ws2"
 
 
 /* ================================
